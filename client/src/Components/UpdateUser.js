@@ -144,32 +144,37 @@ const UpdateUser = () => {
                     </Col>
                 </Row>
 
-                <Row>
-                    <Col md={6}>
-                        List of users
-                        <table className="table">
-                            <thead>
-                                <tr key={userList.email}>
-                                    <td>Email</td>
-                                    <td>Name</td>
-                                    <td>Password</td>
-                                    <td>Actions</td>
+                <Row className="mt-4">
+                    <Col md={8} className="mx-auto">
+                        <h3 className="text-center mb-3">List of Users</h3>
+
+                        <table className="table table-striped table-bordered text-center">
+                            <thead className="table-dark">
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                    <th>Password</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {userList.map((user) => (
-                                    <tr key={user.email}>
-                                        <td>{user.email}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.password}</td>
-
+                                {userList.length > 0 ? (
+                                    userList.map((user) => (
+                                        <tr key={user.email}>
+                                            <td>{user.email}</td>
+                                            <td>{user.name}</td>
+                                            <td>{user.password}</td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="4">No users found</td>
                                     </tr>
-                                ))}
+                                )}
                             </tbody>
-
                         </table>
                     </Col>
                 </Row>
+
             </Form>
         </Container>
     );

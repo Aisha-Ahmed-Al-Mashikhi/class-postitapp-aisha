@@ -17,6 +17,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { addUser, deleteUser } from "../Features/UserSlice";
 import { Link } from "react-router-dom";
+import { registerUser } from "../Features/UserSlice";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -44,6 +46,8 @@ const Register = () => {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     try {
 
@@ -54,7 +58,9 @@ const Register = () => {
       };
       console.log("Form Data", data); // You can handle the form submission here
       alert("Validation all good.");
-      dispatch(addUser(userData));
+      //dispatch(addUser(userData));
+      dispatch(registerUser(userData));
+      navigate("/login");
     }
     catch (error) {
       console.log(error);
@@ -125,38 +131,9 @@ const Register = () => {
         </Row>
         <Row>
           <Col md={6}>
-            <Button>Register</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            List of users
-            <table className="table">
-              <thead>
-                <tr key={userList.email}>
-                  <td>Email</td>
-                  <td>Name</td>
-                  <td>Password</td>
-                  <td>Actions</td>
-                </tr>
-              </thead>
-              <tbody>
-                {userList.map((user) => (
-                  <tr key={user.email}>
-                    <td>{user.email}</td>
-                    <td>{user.name}</td>
-                    <td>{user.password}</td>
-                    <Button color="success" onClick={() => handleDelete(user.email)}>Delete</Button>
-
-                    <Link to={`/update/${user.email}/${user.name}/${user.password}`}>
-                      <td><Button color="dager">Update</Button></td>
-                    </Link>
-
-                  </tr>
-                ))}
-              </tbody>
-
-            </table>
+            <Button>
+              Submit
+            </Button>
           </Col>
         </Row>
       </Form>
