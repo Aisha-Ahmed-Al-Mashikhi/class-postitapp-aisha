@@ -3,17 +3,21 @@ import cors from "cors";
 import express from "express";
 import bcrypt from "bcrypt";
 import UserModel from "./Models/UserModel.js";
+import * as ENV from "./config.js";
+
 const app = express();
 app.use(express.json());
-app.use(cors());
+//Middleware
+const corsOptions = {
+    origin: ENV.CLIENT_URL, //client URL local
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Enable credentials (cookies, authorization headers, etc.)
+};
+app.use(cors(corsOptions));
 
 //Database connection
-const connectString = "mongodb+srv://admin:12345@postitcluster.maucq5a.mongodb.net/postITDb?appName=PostITCluster";
-
-mongoose.connect(connectString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+const connectString = `mongodb+srv://${ENV.DB_USER}:${ENV.DB_PASSWORD}@${ENV.DB_CLUSTER}/${ENV.DB_NAME}?retryWrites=true&w=majority&appName=${ENV.DB_APP_NAME}`;
+mongoose.connect(connectString);
 
 //Post API for Register
 app.post("/registerUser", async (req, res) => {
@@ -57,6 +61,14 @@ app.post("/login", async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+//POST API-logout
+
+app.post("/logout", async (req, res) => {
+
+    res.status(200).json({ message: "Logged out successfully" });
+
 });
 
 app.listen(3001, () => {

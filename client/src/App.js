@@ -1,5 +1,4 @@
 import "./App.css";
-import About from "./Components/Apout";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
@@ -10,13 +9,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "reactstrap"; //import the Reactstrap
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UpdateUser from "./Components/UpdateUser";
+import { useSelector } from "react-redux";
+
 
 const App = () => {
+  const email = useSelector((state) => state.users.user.email);
   return (
     <Container fluid>
       <Router>
         <Row>
-          <Header />
+          {email ? (
+            <>
+              <Header />
+            </>
+          ) : null}
         </Row>
 
         <Row className="main">
@@ -30,7 +36,11 @@ const App = () => {
         </Row>
 
         <Row>
-          <Footer />
+          {email ? (
+            <>
+              <Footer />
+            </>
+          ) : null}
         </Row>
       </Router>
     </Container>
