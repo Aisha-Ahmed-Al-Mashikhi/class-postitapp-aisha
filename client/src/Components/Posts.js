@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { getPosts } from "../Features/PostSlice";
 import { Table } from "reactstrap";
 import moment from "moment";
+import { likePost } from "../Features/PostSlice";
+import { FaThumbsUp } from "react-icons/fa6";
 
 
 const Posts = () => {
@@ -16,6 +18,14 @@ const Posts = () => {
     dispatch(getPosts());
   }, []);
 
+  const handleLikePost = (postId) => {
+    const postData = {
+      postId: postId,
+      userId: email,
+    };
+    dispatch(likePost(postData));
+    navigate("/home");
+  };
 
   return (
     <div className="postsContainer">
@@ -23,16 +33,18 @@ const Posts = () => {
         <thead></thead>
         <tbody>
           {posts.map((post) => (
-            <tr key={post._id}>
+            <tr key={post.id}>
               {/* Ensure to add a unique key for each row */}
               <td>{post.email}</td>
               <td>
-                <p>{post.createdAt}</p>
-                {post.postMsg}
-              </td>
-              <td>
                 <p> {moment(post.createdAt).fromNow()}</p>
                 {post.postMsg}
+                <p className="likes">
+                  <a href="#" onClick={() => handleLikePost(post._id)}>
+                    <FaThumbsUp />
+                  </a>
+                  ({post.likes.count})
+                </p>
               </td>
             </tr>
           ))}

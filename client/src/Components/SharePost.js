@@ -12,7 +12,6 @@ const SharePosts = () => {
   const email = useSelector((state) => state.users.user.email)
 
   const handlePost = async () => {
-    dispatch(savePost(postData)); // Dispatch the savePost thunk from the Posts Slice.
     setpostMsg(""); //clear the text area after posting
 
     // Validate that postMsg is not empty
