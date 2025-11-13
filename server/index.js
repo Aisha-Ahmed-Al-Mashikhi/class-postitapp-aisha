@@ -151,6 +151,38 @@ app.put("/likePost/:postId/", async (req, res) => {
 });
 
 
+app.put("/updateUserProfile/:email/", async (req, res) => {
+    //Retrieve the value from the route
+    const email = req.params.email;
+    //Retrieve the values from the request body.
+    const name = req.body.name;
+    const password = req.body.password;
+    try {
+        // Search for the user that will be updated using the findOne method
+        const userToUpdate = await UserModel.findOne({ email: email });
+        // Check if the user was found
+        if (!userToUpdate) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        // Update the user's name
+        userToUpdate.name = name;
+        //if the user changed the password, change the password in the Db to the new hashed password
+        if (password !== userToUpdate.password) {
+            const hashedpassword = await bcrypt.hash(password, 10);
+            userToUpdate.password = hashedpassword;
+        } else {
+            //if the user did not change the password
+            userToUpdate.password = password;
+        }
+        // Save the updated user
+        await userToUpdate.save(); // Make sure to save the changes
+        // Return the updated user as a response
+        res.send({ user: userToUpdate, msg: "Updated." });
+    } catch (error) {
+        // Handle errors, including database or validation issues
+        res.status(500).json({ error: error.message }); // Send a more descriptive error message optional
+    }
+});
 //server start
 app.listen(3001, () => {
     console.log("You are connected");
