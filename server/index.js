@@ -4,6 +4,8 @@ import express from "express";
 import bcrypt from "bcrypt";
 import UserModel from "./Models/UserModel.js";
 import * as ENV from "./config.js";
+import PostModel from "./Models/PostModel.js";
+
 
 const app = express();
 app.use(express.json());
@@ -71,6 +73,43 @@ app.post("/logout", async (req, res) => {
 
 });
 
+//POST API - savePost
+
+app.post("/savePost", async (req, res) => {
+    try {
+        const postMsg = req.body.postMsg;
+        const email = req.body.email;
+        const post = new PostModel({
+            postMsg: postMsg,
+            email: email,
+        });
+
+        await post.save();
+        res.send({ post: post, msg: "Added." });
+    } catch (error) {
+        res.status(500).json({ error: "An error occurred" });
+    }
+});
+
+//GET API - getPost
+
+app.get("/getPosts", async (req, res) => {
+
+    try {
+
+        // Fetch all posts from the "PostModel" collection, sorted by createdAt in descending order
+
+        const posts = await PostModel.find({}).sort({ createdAt: -1 });
+        const countPost = await PostModel.countDocuments({});
+        res.send({ posts: posts, count: countPost });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "An error occurred" });
+    }
+});
+
+
+//server start
 app.listen(3001, () => {
     console.log("You are connected");
 });
