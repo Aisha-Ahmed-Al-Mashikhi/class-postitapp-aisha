@@ -1,4 +1,4 @@
-a{
+a {
   text-decoration: none;
 }
 a:link {
@@ -15,11 +15,11 @@ a:hover {
   color: hotpink;
 }
 
-.login{
+.login {
   align-items: center;
   justify-content: center;
 }
-.div-form{
+.div-form {
   border-style: solid;
   border-width: thin;
   font-size: 24px;
@@ -31,22 +31,21 @@ a:hover {
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  border-color: #a6d49f; 
+  border-color: #a6d49f;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.login-form input{
+.login-form input {
   margin: 2px;
-  
 }
-.smalltext{
-  font-size:14px;
+.smalltext {
+  font-size: 14px;
   font-weight: bold;
   color: #522a27;
 }
 
-.columndiv1{
+.columndiv1 {
   border-color: #a6d49f;
   font-size: xx-large;
   background-color: rgb(252, 252, 252);
@@ -55,48 +54,44 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
-.columndiv2{
-
+.columndiv2 {
   border-color: rgb(182, 179, 176);
   font-size: xx-large;
   height: auto;
   padding: 20px;
-/*   background-image: url("http://localhost:3000/image1.jpg");
+  /*   background-image: url("http://localhost:3000/image1.jpg");
   background-size: cover;
   background-repeat: no-repeat; */
-
 }
 
-.img1{
+.img1 {
   display: block;
   margin: auto;
   height: 50%;
   width: 50%;
-
 }
-.h1{
+.h1 {
   font-size: 40px;
-  font-family:'Times New Roman';
+  font-family: "Times New Roman";
   text-align: center;
 }
-.appTitle{
+.appTitle {
   text-align: center;
   color: #c73e1d;
 }
-.formrow{
+.formrow {
   background-color: #522a27;
   padding: 50px;
   display: flex;
   align-items: center;
-  justify-content: center
-  
+  justify-content: center;
 }
 
-.side{
-  display:flex;
+.side {
+  display: flex;
   vertical-align: top;
 }
-.checkbox{
+.checkbox {
   width: 25px;
   height: 25px;
 }
@@ -107,42 +102,38 @@ a:hover {
   background-color: #c59849;
   border-style: none;
 }
-body{
-  font-family: 'Roboto', sans-serif;
+body {
+  font-family: "Roboto", sans-serif;
   margin: 0;
-
 }
-.navigation{
-  background-color: #9CB380;
+.navigation {
+  background-color: #9cb380;
   height: 75px;
   font-weight: bolder;
-  color:#522a27;
+  color: #522a27;
 }
-.logo{
-  width:150px;
+.logo {
+  width: 150px;
   height: 70px;
 }
-.footer{
-  display: flex;
-  background-color: #9CB380;
-  height: 100px;
-  color:#522a27;
-  justify-content: center;
-  align-items: center;
-  font-weight: bolder;
-  flex-shrink: 0;
+.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #f1f1f1;
+  font-size: 14px;
+  color: #333;
 }
-.socialmedia{
- width:100px;
- height: 100px;
+.socialmedia {
+  width: 100px;
+  height: 100px;
 }
 
-.userImage{
-  width:100px;
+.userImage {
+  width: 100px;
   height: 100px;
   border-radius: 50%;
 }
-.userInfos{
+.userInfos {
   padding: 20px;
   text-align: center;
 }
@@ -153,152 +144,147 @@ body{
   min-height: 100vh;
 }
 
-.main{
+.main {
   flex-grow: 1;
   min-height: 500px;
 }
-.sharePosts{
-
+.sharePosts {
   padding-top: 10px;
-  height: 200px;
-  border-style: solid ;
-  border-width: thin;
-  margin-top: 10px;
-  border-color: #a6d49f;
+  margin-right: 10px;
+  border-color: #522a27;
   text-align: center;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically center the items */
 }
-.inputPost{
+.inputPost {
   margin-right: 10px;
   width: 80%;
-  border-color:#522a27
-  
+  border-color: #522a27;
 }
 .input-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.postButton{
-  background-color:#522a27;
+.postButton {
+  width: 150px;
+  display: flex; /* Use flexbox to control button content */
+  justify-content: center; /* Center content inside button */
+  align-items: center; /* Vertically center content */
+  margin-left: 10px; /* Space between buttons if there are multiple */
 }
-.dept{
+.dept {
   display: flex;
   flex-direction: row;
   margin-top: 10px;
-
 }
-.selectDept .selectDept{
+.selectDept .selectDept {
   width: 10%;
 }
-.postUserImage{
+.postUserImage {
   width: 50px;
   height: 50px;
   margin: 10px;
- 
 }
 
-.postsContainer{
+.postsContainer {
   display: flex;
   flex-direction: column;
 }
 .post {
   display: flex;
   flex-direction: column;
-  
+
   height: auto;
   width: 100%;
-  
 }
-.postMsg{
+.postMsg {
   padding: 20px;
-  
+
   border: 1px solid rgb(244, 241, 241);
 }
-.postedBy{
-padding: 10px;
-background-color: rgb(236, 238, 236);
-border-radius: 10px;
+.postedBy {
+  padding: 10px;
+  background-color: rgb(236, 238, 236);
+  border-radius: 10px;
 }
-.postByName{
+.postByName {
   font-weight: bolder;
   font: optional;
 }
-.postDate{
+.postDate {
   margin-left: 5px;
-
 }
-.navs{
-  padding:10px;
+.postTime {
+  font-size: 10pt;
+  color: #504d4d;
 }
-.userName{
+.navs {
+  padding: 10px;
+}
+.userName {
   font-weight: bold;
 }
-.likes{
-  padding:5px;
+.likes {
+  padding: 5px;
 }
 
-.error{
+.error {
   color: red;
   font-size: small;
 }
-.loginsmall{
+.loginsmall {
   width: 290px;
   height: 500px;
 }
 
 .header {
-
   display: flex;
-
-  align-items: center;  /* Vertically align items */
-
-  padding: 10px;
-
-  background-color: #f8f9fa;
-
+  align-items: center; /* Vertically align items */
+  padding: 20px;
+  background-color: #a6d49f;
+  margin-bottom: 20px;
+  font-size: 14pt;
+  justify-content: space-between; /* Distributes space between elements */
 }
 
-
-
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Vertically center the brand */
+}
 .nav {
-
-  display: flex;
-
-  align-items: center;  /* Vertically align items */
-
+  display: flex; /* Ensures nav items are in a row */
+  align-items: center; /* Vertically center nav items */
 }
 
-
-
+.nav-item {
+  margin-left: 1rem; /* Adds space between nav items */
+}
 .logo {
-
   height: 50px; /* Adjust the logo size as needed */
-
 }
-
-
 
 .nav a {
+  text-decoration: none; /* Remove underline */
 
-  text-decoration: none;  /* Remove underline */
+  color: #000; /* Set text color */
 
-  color: #000;            /* Set text color */
-
-  margin: 0 15px;         /* Add spacing between links */
-
+  margin: 0 15px; /* Add spacing between links */
 }
-
-
 
 .nav a:hover {
-
-  color: #007bff;  /* Change color on hover (optional) */
-
+  color: #007bff; /* Change color on hover (optional) */
 }
-.nav-link a{
-
+.nav-link a {
   color: inherit;
 
   text-decoration: none;
+}
+.center {
+  display: block;
 
+  margin: auto;
+}
+.button {
+  color: #2e2836;
 }

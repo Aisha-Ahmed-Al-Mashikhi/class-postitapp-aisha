@@ -1,15 +1,22 @@
-import { Button, Col, Label, Container, Row, FormGroup, Input, } from "reactstrap";
+import {
+  Button,
+  Col,
+  Label,
+  Container,
+  Row,
+  FormGroup,
+  Input,
+} from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { savePost } from "../Features/PostSlice";
 
-
 const SharePosts = () => {
   const [postMsg, setpostMsg] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.users.user.email)
+  const email = useSelector((state) => state.users.user.email);
 
   const handlePost = async () => {
     setpostMsg(""); //clear the text area after posting
@@ -29,7 +36,7 @@ const SharePosts = () => {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col md={8} className="sharePosts">
           <Input
             id="share"
             name="share"
@@ -39,8 +46,10 @@ const SharePosts = () => {
             onChange={(e) => setpostMsg(e.target.value)}
           />
 
-          <Button onClick={() => handlePost()}> PostIT</Button>
-
+          <Button onClick={() => handlePost()} className="button postButton">
+            {" "}
+            PostIT
+          </Button>
         </Col>
       </Row>
     </Container>

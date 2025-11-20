@@ -1,7 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div>©Aisha Ahmed .PostIT. All Rights Reserved.</div>
+    <footer className="footer ">
+      <p>&copy; {new Date().getFullYear()} PostIT. All rights reserved.</p>
+
+      <p>
+        <a href="mailto:Aisha.Ahmed@utas.edu.com">Aisha.Ahmed@utas.edu.com</a>
+      </p>
     </footer>
   );
 };

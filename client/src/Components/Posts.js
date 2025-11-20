@@ -2,11 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getPosts } from "../Features/PostSlice";
-import { Table } from "reactstrap";
+import { Label, Table } from "reactstrap";
 import moment from "moment";
 import { likePost } from "../Features/PostSlice";
 import { FaThumbsUp } from "react-icons/fa6";
-
 
 const Posts = () => {
   const posts = useSelector((state) => state.posts.posts);
@@ -35,9 +34,11 @@ const Posts = () => {
           {posts.map((post) => (
             <tr key={post.id}>
               {/* Ensure to add a unique key for each row */}
-              <td>{post.email}</td>
               <td>
-                <p> {moment(post.createdAt).fromNow()}</p>
+                <Label>{post.email}</Label>
+              </td>
+              <td>
+                <p className="postTime"> {moment(post.createdAt).fromNow()}</p>
                 {post.postMsg}
                 <p className="likes">
                   <a href="#" onClick={() => handleLikePost(post._id)}>

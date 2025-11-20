@@ -1,4 +1,13 @@
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap"; //import the Reactstrap Components
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button,
+} from "reactstrap"; //import the Reactstrap Components
 import "../App.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -7,9 +16,7 @@ import { login } from "../Features/UserSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const Login = () => {
-
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
 
@@ -36,7 +43,7 @@ const Login = () => {
       email,
       password,
     };
-    dispatch(login(userData))
+    dispatch(login(userData));
   };
 
   return (
@@ -46,7 +53,7 @@ const Login = () => {
       <Container>
         <Form>
           <Row>
-            <Col md={3}>
+            <Col md={3} className="center">
               <p>Email</p>
               <FormGroup floating>
                 <Input
@@ -56,14 +63,12 @@ const Login = () => {
                   type="email"
                   onChange={(e) => setemail(e.target.value)}
                 />
-                <Label for="exampleEmail">
-                  Email
-                </Label>
+                <Label for="exampleEmail">Email</Label>
               </FormGroup>
             </Col>
           </Row>
           <Row>
-            <Col md={3}>
+            <Col md={3} className="center">
               <p>Password:</p>
               <FormGroup floating>
                 <Input
@@ -73,29 +78,30 @@ const Login = () => {
                   type="password"
                   onChange={(e) => setpassword(e.target.value)}
                 />
-                <Label for="examplePassword">
-                  Password
-                </Label>
+                <Label for="examplePassword">Password</Label>
               </FormGroup>
             </Col>
           </Row>
           <Row>
-            <Col md={3}>
-              {' '}
-              <Button color="primary" className="button" onClick={() => handleLogin()}>
+            <Col md={3} className="center">
+              {" "}
+              <Button
+                color="primary"
+                className="button"
+                onClick={() => handleLogin()}
+              >
                 Login in
               </Button>
             </Col>
           </Row>
         </Form>
       </Container>
-      <p className="smalltext">
-
-        No Account? <Link to="/register">Sign Up now.</Link>
-
-      </p>
+      <Col md={3} className="center">
+        <p className="smalltext">
+          No Account? <Link to="/register">Sign Up now.</Link>
+        </p>
+      </Col>
     </div>
-
   );
 };
 
