@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Features/UserSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../Images/logo.png";
 
 const Login = () => {
   const [email, setemail] = useState();
@@ -53,7 +54,8 @@ const Login = () => {
       <Container>
         <Form>
           <Row>
-            <Col md={3} className="center">
+            <Col md={4} className="center">
+              <img src={logo} />
               <p>Email</p>
               <FormGroup floating>
                 <Input
