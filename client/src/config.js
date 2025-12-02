@@ -1,1 +1,1 @@
-REACT_APP_SERVER_URL=https://utas-link-project-server-4cyl.onrender.com
+export const SERVER_URL=process.env.REACT_APP_SERVER_URL;
